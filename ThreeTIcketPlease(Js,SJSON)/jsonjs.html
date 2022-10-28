@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-size: 20px;
+        }
+        img{
+            margin: 0 150px;
+        }
+
+        h1,h2{
+            text-align: center;
+        }
+        article{
+            float: left;
+            width: 33%;
+        }
+
+        ul{margin-left: 150px;}
+    </style>
+</head>
+<body>
+    <header>
+
+    </header>
+    <section></section>
+    <script>
+        fetch ("bmu1.json")
+        async function loadBMUPage(){
+            let request = new Request("json/bmu1.json")
+            let response = await fetch(request)
+
+            let json_obj = await response.json()
+
+            loadBMUImage(json_obj)
+            loadUnivSchoolInfo(json_obj)
+            loadDeptInfo(json_obj)
+        }
+
+        let header = document.querySelector("header")
+
+        function loadBMUImage(bmu_json_obj)
+        {
+            let img = document.createElement("img")
+            // alert(bmu_json_obj['image'])
+            img.src =  bmu_json_obj['image']
+            header.appendChild(img)
+
+        }
+
+        function loadUnivSchoolInfo(bmu_json_obj)
+        {
+            let h2 = document.createElement("h2")
+            h2.textContent = bmu_json_obj['school']
+            header.appendChild(h2)
+
+            let h1 = document.createElement("h1")
+            // h1.textContent = bmu_json_obj['university']+","+bmu_json_obj['place']
+            h1.textContent = `${bmu_json_obj['university']},${bmu_json_obj['place']}`
+            header.appendChild(h1)
+
+
+
+        }
+
+        function loadDeptInfo(bmu_json_obj)
+        {
+            let section = document.querySelector("section")
+
+            let depts = bmu_json_obj['depts']
+
+            for(let dept of depts)
+            {
+                let article = document.createElement("article")
+       
+                // alert(dept.dept_name+","+dept.eligib+","+dept.theme)
+                let h1 = document.createElement("h2")
+                h1.textContent= dept.dept_name
+ 
+                article.appendChild(h1)
+ 
+                // section.appendChild(article)
+ 
+                let h12 = document.createElement("h2")
+                h12.textContent= "Eligibility"+":"+dept.eligib
+                article.appendChild(h12)
+               
+               
+                let h13 = document.createElement("h2")
+                h13.textContent= "Theme"+":"+dept.theme
+                article.appendChild(h13)
+               
+
+                let h14 = document.createElement("h2")
+               
+                h14.textContent= "Electives"+":"
+                article.appendChild(h14)
+               
+                let ul = document.createElement("ul")
+                let elects = dept.electives
+
+                for(let elect of elects)
+                {
+                    // alert(elect)
+                    let li = document.createElement("li")
+                    li.textContent= elect
+                    ul.appendChild(li)
+                }
+                article.appendChild(ul)
+
+                section.appendChild(article)
+ 
+            }
+        }
+
+   loadBMUPage()
+    </script>
+</body>
+</html>
