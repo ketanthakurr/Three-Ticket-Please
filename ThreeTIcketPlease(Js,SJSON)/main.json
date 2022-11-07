@@ -1,0 +1,58 @@
+{
+
+    "navbar": {
+        "logo": "K:/VSCODE/ThreeTicketPlease/logofinal1.png",
+        "Home": "",
+        "":"",
+        "Destination": {
+            "0": {
+                "name" : "India",
+                "link" : ""
+            },
+            "1": {
+                "name" : "Greece",
+                "link" : ""
+            },
+            "2": {
+                "name" : "Korea",
+                "link" : ""
+            },
+            "3": {
+                "name" : "Italy",
+                "link" : ""
+            }
+        }
+    },
+    "footer" : {
+        "icons" : [""],
+        "copyright" : "© 2022, Copyright: ThreeTicketPlease : Ketan Thakur, M Mahaansh Reddy, Anushka Pandey"
+    },
+    "Card1": {
+        "head" : "Featured from the blog",
+
+        "card-container1": "K:/VSCODE/ThreeTicketPlease/destination1.jpeg",
+        "card-container2": "K:/VSCODE/ThreeTicketPlease/destination2.jpeg"
+    },
+    "Card2": {
+        "head" : "Featured from the blog",
+
+        "card-container1": "K:/VSCODE/ThreeTicketPlease/destination1.jpeg",
+        "card-container2": "K:/VSCODE/ThreeTicketPlease/destination2.jpeg"
+    },
+
+    
+    "items": {
+            "Home": "https://example.com/",
+            "One": "https://example.com/",
+            "Two": "https://example.com/",
+            "Three": "https://example.com/",
+            "Four": "https://example.com/"
+    },
+    "brand": {
+            "name": "BRAND-NAME",
+            "url": "https://example.com/"
+    }
+    
+}
+
+

@@ -1,0 +1,21 @@
+[
+    {
+        "id" : "1", 
+        "name" : "100m"
+    },
+
+    {
+        "id" : "2", 
+        "name" : "Long Jump"
+    },
+
+    {
+        "id" : "3", 
+        "name" : "Shot Put"
+    },
+
+    {
+        "id" : "4", 
+        "name" : "High Jump"
+    }
+]

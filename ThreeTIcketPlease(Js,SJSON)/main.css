@@ -1,0 +1,26 @@
+.container{
+    width: 30px;
+}
+
+.nbrand {
+	color: white;
+}
+
+.nav-item {
+	color: #dddddd;
+}
+
+.nav-item:hover {
+	background-color: #363636;
+	color: #b18051;
+}
+
+.nav-bold-brand {
+	font-weight: bold;
+	color: #eeeeee;
+}
+
+.dropdown-item:hover {
+	background-color: #363636;
+	color: #b18051;
+}
