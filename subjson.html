@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Introductory Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Oooh+Baby&display=swap" rel="stylesheet" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .inputdata{
+        position: absolute;
+        z-index: 5;
+        top: 55.5%;
+        left: 17%;
+        height: 2.8rem;
+        width: 400px;
+        border-radius: 0.9375rem;
+        border: none;
+        background-color: rgba(255, 255, 255, 0.9);
+        padding-left: 15px ;
+        font-size: large;
+      }
+      #phone-select{
+        position: absolute;
+        z-index: 5;
+        top: 46%;
+        left: 17%;
+        height: 2.8rem;
+        width: 90px;
+        border-radius: 0.9375rem;
+        border: none;
+        background-color: rgba(255, 255, 255, 0.9);
+        padding-left: 15px ;
+        font-size: large;
+      }
+      #a{
+        top: 30%;
+      }
+      #b{
+        top: 38%;
+      }
+      #c{
+        top: 46%;
+        width: 280px;
+        left: 23%;
+      }
+      #d{
+        top: 54%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="background-image"></div>
+    <div> <input type="text" placeholder="First Name" class="inputdata" id="a"></div>
+    <div> <input type="text" placeholder="Last Name" class="inputdata" id="b"></div>
+    <div> <input type="text" placeholder="Phone" class="inputdata" id="c" >
+    <select name="Country Code" id="phone-select">
+        <option value="">Code</option>
+        <option value="+99">+99</option>
+        <option value="+1">+1</option>
+        <option value="+21">+21</option>
+        <option value="+49">+49</option>
+        <option value="+27">+27</option>
+        <option value="+75">+75</option>
+        <option value="+5">+5</option>
+    </select></div>
+    <div> <input type="text" placeholder="E-mail" class="inputdata" id="d"></div>
+
+    <script>
+      async function loadIntroPage() {
+        let request = new Request("subjson.json");
+        let response = await fetch(request);
+        let json_obj = await response.json();
+
+        loadImg(json_obj);
+        loadButton2(json_obj);
+    }
+
+    
+    let div1 = document.querySelector(".background-image");
+
+    function loadImg(bts_json_obj) {
+      let img = document.createElement("img");
+      img.src = bts_json_obj["image"];
+      img.style.position = "fixed";
+      img.style.left = "0";
+      img.style.top = "0px";
+      img.style.backgroundRepeat = "no-repeat";
+      img.style.width = "150rem";
+      img.style.height = "60rem";
+      img.style.filter = "saturate(1.4)";
+      img.style.opacity = "70%";
+      img.style.backgroundPosition = "center center";
+      img.style.backgroundAttachment = "fixed";
+      img.style.backgroundSize = "cover";
+      div1.appendChild(img);
+  }
+
+
+    let div3 = document.querySelector("body");
+
+      let p = document.createElement("div");{
+        p.style.width = "600px";
+        p.style.height = "450px";
+        p.style.backgroundColor = "black";
+        p.style.marginLeft = "12.5%"
+        p.style.marginTop = "12%"
+        p.style.position = "absolute"
+        p.style.opacity = "70%"
+        p.style.borderRadius = "15px"
+    }
+    div3.appendChild(p);
+    
+    let body = document.querySelector("body");
+    function loadButton2(bts_json_obj) {
+        let button2 = document.createElement("button");
+        let text = document.createTextNode("SUBSCRIBE");
+        button2.appendChild(text);
+        button2.style.position = "absolute";
+        button2.style.display = "inline-block";
+        button2.style.zIndex = "5";
+        button2.style.width = "11%";
+        button2.style.height = "3rem";
+        button2.style.left = "28%";
+        button2.style.top = "65%";
+        button2.style.transform = "translate(-50%, -50%)";
+        button2.style.fontFamily = "Piazzolla";
+        button2.style.fontStyle = "normal";
+        button2.style.fontSize = "1.25rem";
+        button2.style.textAlign = "center";
+        button2.style.background = "yellow";
+        button2.style.opacity = "70%"
+        button2.style.borderRadius = "0.9375rem";
+        button2.style.borderStyle = "none";
+        button2.style.cursor = "pointer";
+        body.appendChild(button2);
+        button2.onclick = function () {
+          location.href = "main.html";
+        }
+      }
+      loadIntroPage();
+    </script>
+  </body>
+</html>
